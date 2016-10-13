@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72F5B201-6AE6-492B-93BC-18355CD2D950}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bus_Station</RootNamespace>
+    <AssemblyName>Bus Station</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authorization_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authorization_Form.Designer.cs">
+      <DependentUpon>Authorization_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase\Form Display.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBase\Form Display.Designer.cs">
+      <DependentUpon>Form Display.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase\FormSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBase\FormTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormCreateRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormCreateRole.Designer.cs">
+      <DependentUpon>FormCreateRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormCreateUser.Designer.cs">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormEditUserInRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\FormEditUserInRoles.Designer.cs">
+      <DependentUpon>FormEditUserInRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule Editing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule Editing.Designer.cs">
+      <DependentUpon>Schedule Editing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsTickets\Show Tickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsTickets\Show Tickets.Designer.cs">
+      <DependentUpon>Show Tickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsTickets\Tickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsTickets\Tickets.Designer.cs">
+      <DependentUpon>Tickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\UsersEditing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUsersandRolesEditing\UsersEditing.Designer.cs">
+      <DependentUpon>UsersEditing.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Authorization_Form.resx">
+      <DependentUpon>Authorization_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBase\Form Display.resx">
+      <DependentUpon>Form Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUsersandRolesEditing\FormCreateRole.resx">
+      <DependentUpon>FormCreateRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUsersandRolesEditing\FormCreateUser.resx">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUsersandRolesEditing\FormEditUserInRoles.resx">
+      <DependentUpon>FormEditUserInRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Schedule Editing.resx">
+      <DependentUpon>Schedule Editing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsTickets\Show Tickets.resx">
+      <DependentUpon>Show Tickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsTickets\Tickets.resx">
+      <DependentUpon>Tickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUsersandRolesEditing\UsersEditing.resx">
+      <DependentUpon>UsersEditing.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\ADD.png" />
+    <Content Include="Image\DELETE.png" />
+    <Content Include="Image\EXIT.jpg" />
+    <Content Include="Image\Exit.png" />
+    <Content Include="Image\Image Fone.jpg" />
+    <Content Include="Image\SAVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataBase\DataBase.csproj">
+      <Project>{10e7d8d7-3b91-4b44-92ba-4bcccc37378a}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

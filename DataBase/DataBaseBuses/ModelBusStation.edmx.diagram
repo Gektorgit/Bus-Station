@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bf73915a5ff4fd0bbcfa53b0f7510fe" Name="Диаграмма1" ZoomLevel="74">
+        <EntityTypeShape EntityType="BusStationModel.Buses" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Cities" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Discounts" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Flights" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Roles" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Seats" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Tickets" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.UserInRoles" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusStationModel.Users" Width="1.5" PointX="5.75" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="BusStationModel.FK__Flights__BusId__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Seats__BusId__08EA5793" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Flights__CityIdE__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Flights__CityIdS__117F9D94" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Tickets__Discoun__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Tickets__FlightI__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK_UserInRoles_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK__Tickets__SeatId__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="BusStationModel.FK_UserInRoles_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

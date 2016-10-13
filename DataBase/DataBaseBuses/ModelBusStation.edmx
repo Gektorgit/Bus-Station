@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище BusStationModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище BusStationModelContainer">
+          <EntitySet Name="Buses" EntityType="Хранилище BusStationModel.Buses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cities" EntityType="Хранилище BusStationModel.Cities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Discounts" EntityType="Хранилище BusStationModel.Discounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Flights" EntityType="Хранилище BusStationModel.Flights" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="Хранилище BusStationModel.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Seats" EntityType="Хранилище BusStationModel.Seats" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tickets" EntityType="Хранилище BusStationModel.Tickets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInRoles" EntityType="Хранилище BusStationModel.UserInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="Хранилище BusStationModel.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Flights__BusId__15502E78" Association="Хранилище BusStationModel.FK__Flights__BusId__15502E78">
+            <End Role="Buses" EntitySet="Buses" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__CityIdE__1273C1CD" Association="Хранилище BusStationModel.FK__Flights__CityIdE__1273C1CD">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__CityIdS__117F9D94" Association="Хранилище BusStationModel.FK__Flights__CityIdS__117F9D94">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Seats__BusId__08EA5793" Association="Хранилище BusStationModel.FK__Seats__BusId__08EA5793">
+            <End Role="Buses" EntitySet="Buses" />
+            <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Discoun__1CF15040" Association="Хранилище BusStationModel.FK__Tickets__Discoun__1CF15040">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__FlightI__1B0907CE" Association="Хранилище BusStationModel.FK__Tickets__FlightI__1B0907CE">
+            <End Role="Flights" EntitySet="Flights" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__SeatId__1BFD2C07" Association="Хранилище BusStationModel.FK__Tickets__SeatId__1BFD2C07">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRoles_Roles" Association="Хранилище BusStationModel.FK_UserInRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserInRoles" EntitySet="UserInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRoles_Users" Association="Хранилище BusStationModel.FK_UserInRoles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserInRoles" EntitySet="UserInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Buses">
+          <Key>
+            <PropertyRef Name="BusId" />
+          </Key>
+          <Property Name="BusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BusName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CountSeats" Type="int" Nullable="false" />
+          <Property Name="Information" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Information" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DiscountName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Size" Type="money" Nullable="false" />
+          <Property Name="Information" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightId" />
+          </Key>
+          <Property Name="FlightId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FlightNumber" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CityIdStart" Type="int" Nullable="false" />
+          <Property Name="CityIdEnd" Type="int" Nullable="false" />
+          <Property Name="DepartureDate" Type="date" Nullable="false" />
+          <Property Name="DepartureTime" Type="time" Nullable="false" />
+          <Property Name="ArrivalDate" Type="date" Nullable="false" />
+          <Property Name="ArrivaTime" Type="time" Nullable="false" />
+          <Property Name="BusId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Seats">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BusId" Type="int" Nullable="false" />
+          <Property Name="NumberSeat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReleaseDate" Type="date" Nullable="false" />
+          <Property Name="FlightId" Type="int" Nullable="false" />
+          <Property Name="SeatId" Type="int" Nullable="false" />
+          <Property Name="DiscountId" Type="int" Nullable="false" />
+          <Property Name="Sold" Type="bit" />
+          <Property Name="Reserve" Type="bit" />
+          <Property Name="Canceled" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserInRoles">
+          <Key>
+            <PropertyRef Name="UserInRoleId" />
+          </Key>
+          <Property Name="UserInRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="HireDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="UserPassword" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="128" />
+          <Property Name="DateBirthday" Type="datetime" Nullable="false" />
+          <Property Name="Telephon" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__Flights__BusId__15502E78">
+          <End Role="Buses" Type="Хранилище BusStationModel.Buses" Multiplicity="1" />
+          <End Role="Flights" Type="Хранилище BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buses">
+              <PropertyRef Name="BusId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__CityIdE__1273C1CD">
+          <End Role="Cities" Type="Хранилище BusStationModel.Cities" Multiplicity="1" />
+          <End Role="Flights" Type="Хранилище BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityIdEnd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__CityIdS__117F9D94">
+          <End Role="Cities" Type="Хранилище BusStationModel.Cities" Multiplicity="1" />
+          <End Role="Flights" Type="Хранилище BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityIdStart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Seats__BusId__08EA5793">
+          <End Role="Buses" Type="Хранилище BusStationModel.Buses" Multiplicity="1" />
+          <End Role="Seats" Type="Хранилище BusStationModel.Seats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buses">
+              <PropertyRef Name="BusId" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Discoun__1CF15040">
+          <End Role="Discounts" Type="Хранилище BusStationModel.Discounts" Multiplicity="1" />
+          <End Role="Tickets" Type="Хранилище BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="DiscountId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="DiscountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__FlightI__1B0907CE">
+          <End Role="Flights" Type="Хранилище BusStationModel.Flights" Multiplicity="1" />
+          <End Role="Tickets" Type="Хранилище BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flights">
+              <PropertyRef Name="FlightId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="FlightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__SeatId__1BFD2C07">
+          <End Role="Seats" Type="Хранилище BusStationModel.Seats" Multiplicity="1" />
+          <End Role="Tickets" Type="Хранилище BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRoles_Roles">
+          <End Role="Roles" Type="Хранилище BusStationModel.Roles" Multiplicity="1" />
+          <End Role="UserInRoles" Type="Хранилище BusStationModel.UserInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRoles_Users">
+          <End Role="Users" Type="Хранилище BusStationModel.Users" Multiplicity="1" />
+          <End Role="UserInRoles" Type="Хранилище BusStationModel.UserInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BusStationModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BusStationEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Buses" EntityType="BusStationModel.Buses" />
+          <EntitySet Name="Cities" EntityType="BusStationModel.Cities" />
+          <EntitySet Name="Discounts" EntityType="BusStationModel.Discounts" />
+          <EntitySet Name="Flights" EntityType="BusStationModel.Flights" />
+          <EntitySet Name="Roles" EntityType="BusStationModel.Roles" />
+          <EntitySet Name="Seats" EntityType="BusStationModel.Seats" />
+          <EntitySet Name="Tickets" EntityType="BusStationModel.Tickets" />
+          <EntitySet Name="UserInRoles" EntityType="BusStationModel.UserInRoles" />
+          <EntitySet Name="Users" EntityType="BusStationModel.Users" />
+          <AssociationSet Name="FK__Flights__BusId__15502E78" Association="BusStationModel.FK__Flights__BusId__15502E78">
+            <End Role="Buses" EntitySet="Buses" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Seats__BusId__08EA5793" Association="BusStationModel.FK__Seats__BusId__08EA5793">
+            <End Role="Buses" EntitySet="Buses" />
+            <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__CityIdE__1273C1CD" Association="BusStationModel.FK__Flights__CityIdE__1273C1CD">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__CityIdS__117F9D94" Association="BusStationModel.FK__Flights__CityIdS__117F9D94">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Discoun__21B6055D" Association="BusStationModel.FK__Tickets__Discoun__21B6055D">
+            <End Role="Discounts" EntitySet="Discounts" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__FlightI__1FCDBCEB" Association="BusStationModel.FK__Tickets__FlightI__1FCDBCEB">
+            <End Role="Flights" EntitySet="Flights" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRoles_Roles" Association="BusStationModel.FK_UserInRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserInRoles" EntitySet="UserInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__SeatId__20C1E124" Association="BusStationModel.FK__Tickets__SeatId__20C1E124">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInRoles_Users" Association="BusStationModel.FK_UserInRoles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserInRoles" EntitySet="UserInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Buses">
+          <Key>
+            <PropertyRef Name="BusId" />
+          </Key>
+          <Property Name="BusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BusName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CountSeats" Type="Int32" Nullable="false" />
+          <Property Name="Information" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Flights" Relationship="BusStationModel.FK__Flights__BusId__15502E78" FromRole="Buses" ToRole="Flights" />
+          <NavigationProperty Name="Seats" Relationship="BusStationModel.FK__Seats__BusId__08EA5793" FromRole="Buses" ToRole="Seats" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Information" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Flights" Relationship="BusStationModel.FK__Flights__CityIdE__1273C1CD" FromRole="Cities" ToRole="Flights" />
+          <NavigationProperty Name="Flights1" Relationship="BusStationModel.FK__Flights__CityIdS__117F9D94" FromRole="Cities" ToRole="Flights" />
+        </EntityType>
+        <EntityType Name="Discounts">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DiscountName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Size" Type="Byte" Nullable="false" />
+          <Property Name="Information" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Tickets" Relationship="BusStationModel.FK__Tickets__Discoun__21B6055D" FromRole="Discounts" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightId" />
+          </Key>
+          <Property Name="FlightId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FlightNumber" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CityIdStart" Type="Int32" Nullable="false" />
+          <Property Name="CityIdEnd" Type="Int32" Nullable="false" />
+          <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DepartureTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ArrivaTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="BusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buses" Relationship="BusStationModel.FK__Flights__BusId__15502E78" FromRole="Flights" ToRole="Buses" />
+          <NavigationProperty Name="Cities" Relationship="BusStationModel.FK__Flights__CityIdE__1273C1CD" FromRole="Flights" ToRole="Cities" />
+          <NavigationProperty Name="Cities1" Relationship="BusStationModel.FK__Flights__CityIdS__117F9D94" FromRole="Flights" ToRole="Cities" />
+          <NavigationProperty Name="Tickets" Relationship="BusStationModel.FK__Tickets__FlightI__1FCDBCEB" FromRole="Flights" ToRole="Tickets" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserInRoles" Relationship="BusStationModel.FK_UserInRoles_Roles" FromRole="Roles" ToRole="UserInRoles" />
+        </EntityType>
+        <EntityType Name="Seats">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BusId" Type="Int32" Nullable="false" />
+          <Property Name="NumberSeat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buses" Relationship="BusStationModel.FK__Seats__BusId__08EA5793" FromRole="Seats" ToRole="Buses" />
+          <NavigationProperty Name="Tickets" Relationship="BusStationModel.FK__Tickets__SeatId__20C1E124" FromRole="Seats" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FlightId" Type="Int32" Nullable="false" />
+          <Property Name="SeatId" Type="Int32" Nullable="false" />
+          <Property Name="DiscountId" Type="Int32" Nullable="false" />
+          <Property Name="Sold" Type="Boolean" />
+          <Property Name="Reserve" Type="Boolean" />
+          <Property Name="Canceled" Type="Boolean" />
+          <NavigationProperty Name="Discounts" Relationship="BusStationModel.FK__Tickets__Discoun__21B6055D" FromRole="Tickets" ToRole="Discounts" />
+          <NavigationProperty Name="Flights" Relationship="BusStationModel.FK__Tickets__FlightI__1FCDBCEB" FromRole="Tickets" ToRole="Flights" />
+          <NavigationProperty Name="Seats" Relationship="BusStationModel.FK__Tickets__SeatId__20C1E124" FromRole="Tickets" ToRole="Seats" />
+        </EntityType>
+        <EntityType Name="UserInRoles">
+          <Key>
+            <PropertyRef Name="UserInRoleId" />
+          </Key>
+          <Property Name="UserInRoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Roles" Relationship="BusStationModel.FK_UserInRoles_Roles" FromRole="UserInRoles" ToRole="Roles" />
+          <NavigationProperty Name="Users" Relationship="BusStationModel.FK_UserInRoles_Users" FromRole="UserInRoles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="DateBirthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Telephon" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserInRoles" Relationship="BusStationModel.FK_UserInRoles_Users" FromRole="Users" ToRole="UserInRoles" />
+        </EntityType>
+        <Association Name="FK__Flights__BusId__15502E78">
+          <End Role="Buses" Type="BusStationModel.Buses" Multiplicity="1" />
+          <End Role="Flights" Type="BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buses">
+              <PropertyRef Name="BusId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Seats__BusId__08EA5793">
+          <End Role="Buses" Type="BusStationModel.Buses" Multiplicity="1" />
+          <End Role="Seats" Type="BusStationModel.Seats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buses">
+              <PropertyRef Name="BusId" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__CityIdE__1273C1CD">
+          <End Role="Cities" Type="BusStationModel.Cities" Multiplicity="1" />
+          <End Role="Flights" Type="BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityIdEnd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__CityIdS__117F9D94">
+          <End Role="Cities" Type="BusStationModel.Cities" Multiplicity="1" />
+          <End Role="Flights" Type="BusStationModel.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityIdStart" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Discoun__21B6055D">
+          <End Role="Discounts" Type="BusStationModel.Discounts" Multiplicity="1" />
+          <End Role="Tickets" Type="BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discounts">
+              <PropertyRef Name="DiscountId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="DiscountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__FlightI__1FCDBCEB">
+          <End Role="Flights" Type="BusStationModel.Flights" Multiplicity="1" />
+          <End Role="Tickets" Type="BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flights">
+              <PropertyRef Name="FlightId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="FlightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRoles_Roles">
+          <End Role="Roles" Type="BusStationModel.Roles" Multiplicity="1" />
+          <End Role="UserInRoles" Type="BusStationModel.UserInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__SeatId__20C1E124">
+          <End Role="Seats" Type="BusStationModel.Seats" Multiplicity="1" />
+          <End Role="Tickets" Type="BusStationModel.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInRoles_Users">
+          <End Role="Users" Type="BusStationModel.Users" Multiplicity="1" />
+          <End Role="UserInRoles" Type="BusStationModel.UserInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BusStationModelContainer" CdmEntityContainer="BusStationEntities">
+          <EntitySetMapping Name="Buses">
+            <EntityTypeMapping TypeName="BusStationModel.Buses">
+              <MappingFragment StoreEntitySet="Buses">
+                <ScalarProperty Name="BusId" ColumnName="BusId" />
+                <ScalarProperty Name="BusName" ColumnName="BusName" />
+                <ScalarProperty Name="CountSeats" ColumnName="CountSeats" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="BusStationModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="BusStationModel.Discounts">
+              <MappingFragment StoreEntitySet="Discounts">
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+                <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="BusStationModel.Flights">
+              <MappingFragment StoreEntitySet="Flights">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+                <ScalarProperty Name="FlightNumber" ColumnName="FlightNumber" />
+                <ScalarProperty Name="CityIdStart" ColumnName="CityIdStart" />
+                <ScalarProperty Name="CityIdEnd" ColumnName="CityIdEnd" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="ArrivaTime" ColumnName="ArrivaTime" />
+                <ScalarProperty Name="BusId" ColumnName="BusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="BusStationModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seats">
+            <EntityTypeMapping TypeName="BusStationModel.Seats">
+              <MappingFragment StoreEntitySet="Seats">
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="BusId" ColumnName="BusId" />
+                <ScalarProperty Name="NumberSeat" ColumnName="NumberSeat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="BusStationModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+                <ScalarProperty Name="Sold" ColumnName="Sold" />
+                <ScalarProperty Name="Reserve" ColumnName="Reserve" />
+                <ScalarProperty Name="Canceled" ColumnName="Canceled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInRoles">
+            <EntityTypeMapping TypeName="BusStationModel.UserInRoles">
+              <MappingFragment StoreEntitySet="UserInRoles">
+                <ScalarProperty Name="UserInRoleId" ColumnName="UserInRoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BusStationModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateBirthday" ColumnName="DateBirthday" />
+                <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
